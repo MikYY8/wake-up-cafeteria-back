@@ -1,16 +1,91 @@
-# React + Vite
+# 🧭 Guía Rápida de Trabajo en Equipo con Git y GitHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌱 1. Clonar el repositorio
 
-Currently, two official plugins are available:
+```bash
+git clone https://github.com/MikYY8/wake-up-cafeteria-back.git
+cd TU_REPO
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌿 2. Crear una nueva rama para tu tarea
 
-## React Compiler
+⚠️ Nunca trabajes directo en main
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+git checkout -b feature/nombre-de-tu-tarea
+```
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📦 Ejemplo:
+
+```bash
+git checkout -b feature/login
+```
+
+## 🧱 3. Hacer tus cambios
+
+Programá, editá y guardá tus archivos.
+Podés verificar el estado de tus cambios con:
+
+```bash
+git status
+```
+
+## 💾 4. Guardar los cambios localmente
+
+```bash
+git add .
+git commit -m "Descripción corta de lo que hiciste"
+```
+
+💡 Ejemplo:
+
+```bash
+git commit -m "Agrego formulario de login y estilos básicos"
+```
+
+## ☁️ 5. Subir tu rama al repositorio remoto
+
+```bash
+git push origin feature/nombre-de-tu-tarea
+```
+
+## 🔀 6. Crear un Pull Request (PR)
+
+Entrá al repo en GitHub
+
+Hacé clic en Pull requests → New pull request
+
+Seleccioná tu rama → main
+
+Escribí un título claro (ej: “Agrego página de login”)
+
+Clic en Create pull request
+
+## 🧩 7. Revisión y Merge
+
+Revisar los cambios
+
+Si todo está correcto → Merge pull request
+
+¡Listo! los cambios se integran a main 🎉
+
+## 💡 Reglas de oro
+
+🚫 No pushear directo al main 
+
+🌿 1 rama = 1 funcionalidad
+
+🔁 Siempre crear Pull Requests para fusionar cambios
+
+🧹 Actualizá tu rama con main si otros ya mergearon:
+
+```bash
+git checkout main
+git pull origin main
+git checkout feature/mi-rama
+git merge main
+```
+
+👩‍💻 Tip: mantené los commits pequeños, claros y con mensajes descriptivos.
+Esto ayuda a entender el historial y resolver conflictos fácilmente.
