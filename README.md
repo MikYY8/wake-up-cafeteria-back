@@ -3,7 +3,7 @@
 ## 🌱 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/MikYY8/wake-up-cafeteria-back.git
+git clone https://github.com/MikYY8/wake-up-cafeteria-front.git
 cd TU_REPO
 ```
 
