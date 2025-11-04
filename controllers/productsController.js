@@ -4,12 +4,12 @@ import { productsService } from "../services/productsService.js"
 
 const ps = new productsService();
 
-export const getOneProduct = (req, res)=>{
+export const getOneProduct = async (req, res)=>{
     try {
         // extraer del req las variables
         const { id } = req.params
         // llamar al service que resuelve la logica
-        const producto = ps.getOne(id)
+        const producto = await ps.getOne(id)
         // devolver resultado
         res.send(producto)
     } catch (error) {
@@ -28,48 +28,32 @@ export const getAllProducts = async (req, res)=>{
 
 export const createProduct = async (req, res)=>{
     const {name, price} = req.body
-    const producto = {
-        name,
-        price,
-        status:true
-    }
-    const productoCreado = await ps.create(producto)
+    
+    const productoCreado = await ps.create(name,price)
     res.send(productoCreado)
 };
 
-export const updateProduct = (req, res)=>{
+export const updateProduct = async (req, res)=>{
     const {id} = req.params
     const {name,price,status} = req.body
 
     const producto = {
-        name,price,status,id
+        name,price,status,id:Number(id)
     }
 
-    const productoActualizado = ps.update(producto)
+    const productoActualizado = await ps.update(producto)
     res.send(productoActualizado)
 };
 
-export const updatePartialProduct = (req, res)=>{
-    const {id} = req.params
-    const {name,price,status} = req.body
+export const updatePartialProduct = (req, res)=>{};  // POR QUÉ NO ME DEJA BORRAR ESTO¿¿¿¿ está cursed
 
-    const producto = { id: Number(id) };
-    if (name !== undefined) producto.name = name;
-    if (price !== undefined) producto.price = price;
-    if (status !== undefined) producto.status = status;
-
-    const productoActualizado = ps.updatePartial(producto)
-    res.send(productoActualizado)
-
-};
-
-export const deleteProduct = (req, res)=>{
+export const deleteProduct = async (req, res)=>{
     try {
         const { id } = req.params
-        const productoEliminado = ps.deleteProd(Number(id))
+        const productoEliminado = ps.deleteLogicoProd(Number(id))
         res.send(productoEliminado)
     } catch (error) {
         
-    }
+    } 
 
 }
