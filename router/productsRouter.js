@@ -1,7 +1,7 @@
 // responsable del ruteo (funciones del controller) + ejecutar middlewares
 
 import { Router } from "express";
-import { getOneProduct, getAllProducts, createProduct, updateProduct, updatePartialProduct, deleteProduct } from "../controllers/productsController.js";
+import { getOneProduct, getAllProducts, createProduct, updateProduct, deleteProduct } from "../controllers/productsController.js";
 
 const productsRouter = Router()
 
@@ -21,10 +21,6 @@ productsRouter.post("/", createProduct)
 
 //PUT (editar) datos en el body + id para saber cuál editar: actualiza un elemento especifico
 productsRouter.put("/:id", updateProduct)
-
-
-//PATCH datos en el body + id: actualiza un elemento especifico parcialmente
-productsRouter.patch("/:id", updatePartialProduct)
 
 
 //DELETE con un id: eliminar un elemento de la base de datos (logica (cambio de estado) / fisica (eliminacion real de la BBDD))
