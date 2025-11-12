@@ -19,23 +19,21 @@ export const getOneProduct = (req, res)=>{
 
 };
 
-export const getAllProducts = (req, res)=>{
+export const getAllProducts = async (req, res)=>{
     try {
-        const productos = ps.getAll()
+        const productos = await ps.getAll()
         res.send(productos)
-    } catch (error) {
-        
-    }
-
+    } catch (error) {}
 };
 
-export const createProduct = (req, res)=>{
+export const createProduct = async (req, res)=>{
     const {name, price} = req.body
     const producto = {
         name,
-        price
+        price,
+        status:true
     }
-    const productoCreado = ps.create(producto)
+    const productoCreado = await ps.create(producto)
     res.send(productoCreado)
 };
 

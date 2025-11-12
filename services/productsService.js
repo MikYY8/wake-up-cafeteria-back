@@ -1,28 +1,20 @@
-export class productsService{
-    productosMock = [
-        { id: 1, name: "producto 1", price: 100, status:true },
-        { id: 2, name: "producto 2", price: 200, status:true },
-        { id: 3, name: "producto 3", price: 300, status:true },
-    ];
+import Product from "../models/productsModel.js";
 
+export class productsService{
 
     getOne(id){
         // throw new Error("Error al buscar el producto")
         return this.productosMock.find((prod) => prod.id == id);
     }
 
-    getAll(){
-        return this.productosMock
+    async getAll(){
+        const products = await Product.find()
+        return products
     }
 
-    create(producto){
-        const productoConId = {
-            id:this.productosMock.length + 1,
-            ...producto
-        }
-        this.productosMock.push(productoConId)
-        console.log(this.productosMock)
-        return producto
+    async create(producto){
+        const productoCreado = await Product.create(producto)
+        return productoCreado
     }
 
     update(producto){
