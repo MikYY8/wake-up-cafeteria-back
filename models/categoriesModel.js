@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 const {Schema,model} = mongoose
-const productSchema = new Schema({
+const categorySchema = new Schema({
     id: {
         type: Number,
         required: true,
@@ -11,10 +11,6 @@ const productSchema = new Schema({
         type: String,
         required: true
     },
-    price: {
-        type: Number,
-        required: true
-    },
     description: {
         type: String,
         default: ""
@@ -22,13 +18,9 @@ const productSchema = new Schema({
     status: {
         type: Boolean,
         default: true
-    },
-    image: {
-        type: String,
-        default: ""
     }
 })
 
-const Product = model("Product",productSchema)
+const Category = model("Category",categorySchema)
 
-export default Product 
+export default Category 
