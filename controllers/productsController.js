@@ -50,7 +50,7 @@ export const updatePartialProduct = (req, res)=>{};  // POR QUÉ NO ME DEJA BORR
 export const deleteProduct = async (req, res)=>{
     try {
         const { id } = req.params
-        const productoEliminado = ps.deleteLogicoProd(Number(id))
+        const productoEliminado = await ps.deleteLogicoProd(Number(id))
         res.send(productoEliminado)
     } catch (error) {
         
