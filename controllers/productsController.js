@@ -26,23 +26,30 @@ export const getAllProducts = async (req, res)=>{
     } catch (error) {}
 };
 
-export const createProduct = async (req, res)=>{
-    const {name, price} = req.body
-    
-    const productoCreado = await ps.create(name,price)
-    res.send(productoCreado)
+export const createProduct = async (req, res) => {
+    try {
+        const { name, price, description, image } = req.body;
+
+        const productoCreado = await ps.create({name,price,description,image,});
+
+        res.send(productoCreado);
+    } catch (error) {
+        res.status(500).send({ error: "Error al crear producto" });
+    }
 };
 
-export const updateProduct = async (req, res)=>{
-    const {id} = req.params
-    const {name,price,status} = req.body
+export const updateProduct = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { name, price, description, image, status } = req.body;
 
-    const producto = {
-        name,price,status,id:Number(id)
+        const producto = {id: Number(id),name,price,description,image,status};
+
+        const productoActualizado = await ps.update(producto);
+        res.send(productoActualizado);
+    } catch (error) {
+        res.status(500).send({ error: "Error al actualizar producto" });
     }
-
-    const productoActualizado = await ps.update(producto)
-    res.send(productoActualizado)
 };
 
 export const updatePartialProduct = (req, res)=>{};  // POR QUÉ NO ME DEJA BORRAR ESTO¿¿¿¿ está cursed
@@ -53,7 +60,7 @@ export const deleteProduct = async (req, res)=>{
         const productoEliminado = await ps.deleteLogicoProd(Number(id))
         res.send(productoEliminado)
     } catch (error) {
-        
+        res.status(500).send({ error: "Error al actualizar producto" });
     } 
 
 }
