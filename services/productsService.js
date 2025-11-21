@@ -19,7 +19,7 @@ export class productsService{
         const producto = {
             name,
             price,
-            statur:true,
+            status:true,
             id:idGenerado
         }
         const productoCreado = await Product.create(producto)
@@ -38,10 +38,10 @@ export class productsService{
 
     }
 
-    async deleteFisicoProd(id){
-        //   borrado fisico
-        const productoEliminado = await Product.deleteOne({id:id})
-        return productoEliminado
-    }
+    // async deleteFisicoProd(id){
+    //     //   borrado fisico
+    //     const productoEliminado = await Product.deleteOne({id:id})
+    //     return productoEliminado
+    // }
 
 } 
