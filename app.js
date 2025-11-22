@@ -2,8 +2,20 @@ import express from 'express'
 import env from 'dotenv'
 import mongoose from 'mongoose'
 import cors from "cors"
+
+import { Router } from "express";
 import productsRouter from "./router/productsRouter.js"
+import { productValidation } from "../validations/productsValidation.js";
+import { validate } from "../middlewares/validationResult.js";
+import { createProduct } from "./controllers/productsController.js";
+
 import categoriesRouter from "./router/categoriesRouter.js"
+import { categoryValidation } from "../validations/productsValidation.js";
+import { createCategory } from "./controllers/productsController.js";
+
+
+productsRouter.post("/", productValidation,validate,createProduct);
+categoriesRouter.post("/",categoryValidation,validate,createCategory);
 
 env.config()
 
@@ -15,7 +27,6 @@ const corsOptions = {
   "origin": "http://localhost:5173", // agregar "https://midominio.com.ar" cuando tengamos
   "methods": "GET,POST,PUT,DELETE",
   "allowedHeaders": "Content-Type"
-
 }
 
 app.use(express.json({ limit: '10mb' })) 
