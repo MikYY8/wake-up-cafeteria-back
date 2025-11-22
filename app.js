@@ -26,7 +26,7 @@ const app = express()
 const corsOptions = {
   "origin": "http://localhost:5173", // agregar "https://midominio.com.ar" cuando tengamos
   "methods": "GET,POST,PUT,DELETE",
-  "allowedHeaders": "Content-Type"
+  "allowedHeaders": ["Content-Type", "Authorization", "x-refresh-token"]
 }
 
 app.use(express.json({ limit: '10mb' })) 
