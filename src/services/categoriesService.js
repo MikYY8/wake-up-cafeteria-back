@@ -7,9 +7,21 @@ export class categoriesService{
         return category
     }
 
-    async getAll(){
-        const categories = await Category.find()
-        return categories
+    async getAll(page = 1, limit = 10) {
+        const skip = (page - 1) * limit;
+
+        const [total, categories] = await Promise.all([
+            Category.countDocuments(),
+            Category.find().skip(skip).limit(limit)
+        ]);
+
+        return {
+            total,
+            page,
+            limit,
+            totalPages: Math.ceil(total / limit),
+            data: categories
+        };
     }
 
     async create({ name, description }) {

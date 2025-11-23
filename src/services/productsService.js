@@ -7,9 +7,21 @@ export class productsService{
         return producto
     }
 
-    async getAll(){
-        const products = await Product.find()
-        return products
+    async getAll(page = 1, limit = 10) {
+        const skip = (page - 1) * limit;
+
+        const [total, products] = await Promise.all([
+            Product.countDocuments(),
+            Product.find().skip(skip).limit(limit)
+        ]);
+
+        return {
+            total,
+            page,
+            limit,
+            totalPages: Math.ceil(total / limit),
+            data: products
+        };
     }
 
     async create(name,price){
