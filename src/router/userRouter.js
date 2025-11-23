@@ -1,10 +1,12 @@
 import express from "express";
-import {registerController, loginController, renovarTokenController} from "../controllers/userController.js";
+import { registerController, loginController, renovarTokenController } from "../controllers/userController.js";
+import { registerValidation, loginValidation } from "../validations/userValidation.js";
+import { validationMiddleware } from "../middlewares/validationMiddleware.js";
 
 const userRouter = express.Router();
 
-userRouter.post("/register", registerController);
-userRouter.post("/login", loginController);
+userRouter.post("/register", registerValidation, validationMiddleware, registerController);
+userRouter.post("/login", loginValidation, validationMiddleware, loginController);
 userRouter.post("/token", renovarTokenController);
 
 export default userRouter
