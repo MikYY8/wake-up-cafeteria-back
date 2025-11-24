@@ -1,91 +1,173 @@
-# 🧭 Guía Rápida de Trabajo en Equipo con Git y GitHub
+# 🛒 Wake Up Cafetería – API REST (Backend)
 
-## 🌱 1. Clonar el repositorio
+Proyecto realizado para Programación Web, correspondiente a la creación de una API RESTful completa, con autenticación, validación, paginación, logger y estructura profesional.
+
+Esta API gestiona dos entidades principales:
+
+Productos (Entidad Principal)
+
+Categorías (Entidad de Soporte)
+
+Además incluye sistema de usuarios, roles, login, refresh token y protección de rutas.
+
+## 🚀 Descripción
+
+Wake Up Cafetería es una aplicación tipo e-commerce enfocada en la venta de productos de cafetería.
+Este backend permite:
+
+- Crear, listar, actualizar y eliminar productos
+- Crear, listar, actualizar y eliminar categorías
+- Registrar usuarios
+- Login con JWT
+- Renovación de tokens
+- Autorización por roles (user y admin)
+- Validación de datos con express-validator
+- Logger con Winston
+- Paginación en endpoints de listado
+
+La API fue desarrollada utilizando Node.js + Express, con base de datos en MongoDB Atlas.
+
+## ✨ Funcionalidades principales
+### 1. 🔐 Autenticación
+
+Registro de usuarios con contraseña hasheada (bcrypt)
+
+Login con generación de:
+
+Access Token (corto plazo)
+
+Refresh Token (largo plazo)
+
+Renovación de Access Token a partir del Refresh Token
+
+Middleware de autenticación (authMiddleware)
+
+Middleware de roles (authRolesMiddleware)
+
+### 2. 🗂 CRUD Completo (ABMC)
+Productos (Entidad Principal)
+
+GET /api/products (con paginación)
+
+GET /api/products/:id
+
+POST /api/products (solo admin)
+
+PUT /api/products/:id (solo admin)
+
+DELETE /api/products/:id (solo admin)
+
+Categorías (Entidad de Soporte)
+
+GET /api/category
+
+GET /api/category/:id
+
+POST /api/category (solo admin)
+
+PUT /api/category/:id (solo admin)
+
+DELETE /api/category/:id (solo admin)
+
+Usuarios
+
+POST /api/users/register
+
+POST /api/users/login
+
+POST /api/users/token
+
+### 3. 🧹 Validaciones
+
+Validación realizada con express-validator en:
+
+Productos
+
+Categorías
+
+Usuarios (registro + login)
+
+Validación de ID (params)
+
+Validación de datos obligatorios y tipos
+
+## 🛠 Tecnologías utilizadas
+
+Node.js
+
+Express.js
+
+MongoDB + Mongoose
+
+JWT (jsonwebtoken)
+
+Bcrypt
+
+Express-validator
+
+Winston (logger)
+
+Cors
+
+Dotenv
+
+Render (Hosting del backend)
+
+Git / GitHub
+
+📁 Estructura del Proyecto
+/src
+   /controllers
+   /middlewares
+   /model
+   /router
+   /service
+   /utils
+app.js
+README.md
+package.json
+
+## 🧪 Instrucciones de Uso
+
+1️⃣ Clonar el repositorio
 
 ```bash
-git clone https://github.com/MikYY8/wake-up-cafeteria-front.git
-cd TU_REPO
+git clone <URL-del-repo>
+cd wake-up-cafeteria-back
 ```
 
-## 🌿 2. Crear una nueva rama para tu tarea
 
-⚠️ Nunca trabajes directo en main
+2️⃣ Instalar dependencias
 
 ```bash
-git checkout -b feature/nombre-de-tu-tarea
+npm install
 ```
 
+3️⃣ Configurar variables de entorno
 
-📦 Ejemplo:
+Crear .env con:
 
 ```bash
-git checkout -b feature/login
-```
+PORT=3000
+MONGOURL=<string-de-mongo-atlas>
+JWT_ACCESS=<clave-para-access-token>
+JWT_ACCESS_EXPIRES_IN=15m
+JWT_REFRESH=<clave-para-refresh-token>
+JWT_REFRESH_EXPIRES_IN=3d
+```bash
 
-## 🧱 3. Hacer tus cambios
-
-Programá, editá y guardá tus archivos.
-Podés verificar el estado de tus cambios con:
+4️⃣ Iniciar servidor en desarrollo
 
 ```bash
-git status
+npm run dev
 ```
 
-## 💾 4. Guardar los cambios localmente
+🖼 Imágenes de la aplicación
 
-```bash
-git add .
-git commit -m "Descripción corta de lo que hiciste"
-```
+(Aquí van capturas de Postman o del frontend una vez conectado)
 
-💡 Ejemplo:
+🙋 Contribuidores
 
-```bash
-git commit -m "Agrego formulario de login y estilos básicos"
-```
+Micaela Ybarra – Backend
 
-## ☁️ 5. Subir tu rama al repositorio remoto
-
-```bash
-git push origin feature/nombre-de-tu-tarea
-```
-
-## 🔀 6. Crear un Pull Request (PR)
-
-Entrá al repo en GitHub
-
-Hacé clic en Pull requests → New pull request
-
-Seleccioná tu rama → main
-
-Escribí un título claro (ej: “Agrego página de login”)
-
-Clic en Create pull request
-
-## 🧩 7. Revisión y Merge
-
-Revisar los cambios
-
-Si todo está correcto → Merge pull request
-
-¡Listo! los cambios se integran a main 🎉
-
-## 💡 Reglas de oro
-
-🚫 No pushear directo al main 
-
-🌿 1 rama = 1 funcionalidad
-
-🔁 Siempre crear Pull Requests para fusionar cambios
-
-🧹 Actualizá tu rama con main si otros ya mergearon:
-
-```bash
-git checkout main
-git pull origin main
-git checkout feature/mi-rama
-git merge main
-```
-
-👩‍💻 Tip: mantené los commits pequeños, claros y con mensajes descriptivos.
-Esto ayuda a entender el historial y resolver conflictos fácilmente.
+Salomón Prieto – Frontend

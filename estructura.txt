@@ -1,0 +1,43 @@
+src/
+|
+├─── config/ # Configuracion de logger
+|	└─── Winston.js
+|
+├─── controllers/ # Controladores para manejar las peticiones
+|	├───  categoriesController.js
+|	├─── productsController.js
+|	└─── userController.js 
+|
+├─── middlewares/ # Middlewares para validación y manejo de errores
+|	├─── authMiddleware.js
+|	├─── authRoles.js
+|	└─── validationMiddleware.js
+|
+├─── models/ # Modelos para interactuar con la base de datos
+|	├─── categoriesModel.js
+|	├─── productsModel.js
+|	└───userModel.js
+|
+├─── router/ # Rutas para definir los endpoints
+|	├─── categoriesRouter.js
+|	├─── productsRouter.js
+|	└───userRouter.js
+|
+├─── services/ # Servicios para la lógica de negocio
+|	├─── categoriesService.js
+|	├─── productsService.js
+|	└───userService.js
+|
+├─── utils/ # Funciones auxiliares reutilizables
+|	└─── jwt.js
+|
+├─── validations/ # Validaciones de seguridad
+|	├─── categoriesValidation.js
+|	├─── productsValidation.js
+|	└─── userValidation.js
+|
+├─── app.js # Configuración principal de Express
+├─── estructura.txt # Este archivo
+├─── package-lock.json # Detalles de las dependencias
+├─── package.json # Dependencias y scripts del proyecto
+└─── README.md # Instrucciones de uso, descripción y detalles del proyecto 

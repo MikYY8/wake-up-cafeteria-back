@@ -10,12 +10,12 @@ import { logger } from './src/config/Winston.js'
 
 env.config()
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000;
 
 const app = express()
 
-const corsOptions = {
-  "origin": "http://localhost:5173", // agregar "https://midominio.com.ar" cuando tengamos
+const corsOptions = {  // origin: ["http://localhost:5173", "https://TU-FRONT.netlify.app"],
+  "origin": ["http://localhost:5173"], // agregar "https://midominio.com.ar" cuando tengamos
   "methods": "GET,POST,PUT,DELETE",
   "allowedHeaders": ["Content-Type", "Authorization", "x-refresh-token"]
 }
@@ -46,6 +46,6 @@ mongoose.connect(process.env.MONGOURL).then(()=>{
   console.log(error)
 })
 
-app.listen(PORT, () => 
+app.listen(PORT, "0.0.0.0", () =>
   console.log(`Server levantado en http://localhost:${PORT}`)
-)
+);
