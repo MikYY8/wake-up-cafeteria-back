@@ -6,6 +6,7 @@ import cors from "cors"
 import productsRouter from "./src/router/productsRouter.js"
 import categoriesRouter from "./src/router/categoriesRouter.js"
 import userRouter from "./src/router/userRouter.js"
+import { logger } from './src/config/Winston.js'
 
 env.config()
 
@@ -18,6 +19,11 @@ const corsOptions = {
   "methods": "GET,POST,PUT,DELETE",
   "allowedHeaders": ["Content-Type", "Authorization", "x-refresh-token"]
 }
+
+app.use((req, res, next) => {
+  logger.info(`HTTP ${req.method} ${req.url}`);
+  next();
+});
 
 app.use(express.json({ limit: '10mb' })) 
 app.use(cors(corsOptions))

@@ -34,11 +34,13 @@ export class categoriesService{
             status: true,
         };
         const categoriaCreada = await Category.create(categoria)
+        logger.info(`Categoría creada: id=${categoriaCreada.id} name=${categoriaCreada.name}`);
         return categoriaCreada
     }
 
     async update(categoria){
         const categoriaActualizada = await Category.updateOne({id:categoria.id},{...categoria})
+         logger.info(`Categoria actualizada: id=${id}`);
         return categoriaActualizada
     }
 
@@ -46,6 +48,7 @@ export class categoriesService{
     async deleteLogicoCat(id){
         //  borrado logico
         const categoriaEliminada = await Category.updateOne({id:id},{status:false})
+        logger.info(`Categoria eliminada lógicamente: id=${id}`);
         return categoriaEliminada
 
     }

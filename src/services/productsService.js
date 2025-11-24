@@ -37,17 +37,20 @@ export class productsService{
             id:idGenerado
         }
         const productoCreado = await Product.create(producto)
+        logger.info(`Producto creado: id=${productoCreado.id}, name=${productoCreado.name}`);
         return productoCreado
     }
 
     async update(producto){
         const productoActualizado = await Product.updateOne({id:producto.id},{...producto})
+        logger.info(`Producto actualizado: id=${id}`);
         return productoActualizado
     }
 
     async deleteLogicoProd(id){
         //  borrado logico
         const productoEliminado = await Product.updateOne({id:id},{status:false})
+        logger.info(`Producto eliminado lógicamente: id=${id}`);
         return productoEliminado
 
     }

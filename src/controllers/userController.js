@@ -1,4 +1,5 @@
 import { userService } from "../services/userService.js"
+import { logger } from "../config/Winston.js";
 
 const us = new userService();
 
@@ -11,7 +12,9 @@ export const registerController = async (req, res) => {
             code: 201,
             data: newUser,
         });
+        logger.info(`Nuevo usuario registrado - ID: ${newUser._id}`);
     } catch (error) {
+        logger.error(`Error al registrar usuario: ${error.message}`);
         res.status(500).json(error.message);
     }
 };
