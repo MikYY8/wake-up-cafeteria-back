@@ -1,4 +1,5 @@
-import { check } from "express-validator";
+import { check, ExpressValidator } from "express-validator";
+import { param } from "express-validator";
 
 
 // VALIDACION DE ID --- Para GET ONE y DELETE.

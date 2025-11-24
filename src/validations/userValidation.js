@@ -3,10 +3,10 @@ import { check } from "express-validator";
 // VALIDACIÓN DE REGISTRO
 export const registerValidation = [
     check("name")
-        .isString().withMessage("El nombre sólo debe contener letras")
+        .isString().withMessage("El nombre debe ser un String")
         .notEmpty().withMessage("El nombre es obligatorio"),
     check("surname")
-        .isString().withMessage("El apellido sólo debe contener letras")
+        .isString().withMessage("El apellido debe ser un String")
         .notEmpty().withMessage("El apellido es obligatorio"),
     check("email")
         .isEmail().withMessage("Email inválido")

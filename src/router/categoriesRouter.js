@@ -18,15 +18,15 @@ categoriesRouter.get("/", getAllCategories)
 
 
 //POST datos en el body: crea un elemento
-categoriesRouter.post("/", categoryCreateValidation, authMiddleware, authRoles(["admin"]), validationMiddleware, createCategory)
+categoriesRouter.post("/", authMiddleware, authRoles(["admin"]), categoryCreateValidation, validationMiddleware, createCategory)
 
 
 //PUT (editar) datos en el body + id para saber cuál editar: actualiza un elemento especifico
-categoriesRouter.put("/:id", categoryUpdateValidation, authMiddleware, authRoles(["admin"]), validationMiddleware, updateCategory)
+categoriesRouter.put("/:id", authMiddleware, authRoles(["admin"]), categoryUpdateValidation, validationMiddleware, updateCategory)
 
 
 //DELETE con un id: eliminar un elemento de la base de datos (logica (cambio de estado) / fisica (eliminacion real de la BBDD))
-categoriesRouter.delete("/:id", idValidation, authMiddleware, authRoles(["admin"]), validationMiddleware, deleteCategory)
+categoriesRouter.delete("/:id", authMiddleware, authRoles(["admin"]), idValidation, validationMiddleware, deleteCategory)
 
 
 export default categoriesRouter

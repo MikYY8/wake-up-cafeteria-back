@@ -1,4 +1,4 @@
-import Usuario from "../model/userModel.js";
+import Usuario from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import { generarAccessToken, generarRefreshToken } from "../utils/jwt.js";
 import jwt from "jsonwebtoken";

@@ -19,15 +19,15 @@ productsRouter.get("/", getAllProducts)
 
 
 //POST datos en el body: crea un elemento
-productsRouter.post("/", productCreateValidation, authMiddleware, authRoles(["admin"]), validationMiddleware, createProduct)
+productsRouter.post("/", authMiddleware, authRoles(["admin"]), productCreateValidation, validationMiddleware, createProduct)
 
 
 //PUT (editar) datos en el body + id para saber cuál editar: actualiza un elemento especifico
-productsRouter.put("/:id", productUpdateValidation, authMiddleware, authRoles(["admin"]), validationMiddleware, updateProduct)
+productsRouter.put("/:id", authMiddleware, authRoles(["admin"]), productUpdateValidation, validationMiddleware, updateProduct)
 
 
 //DELETE con un id: eliminar un elemento de la base de datos (logica (cambio de estado) / fisica (eliminacion real de la BBDD))
-productsRouter.delete("/:id", idValidation, authMiddleware, authRoles(["admin"]), validationMiddleware, deleteProduct)
+productsRouter.delete("/:id", authMiddleware, authRoles(["admin"]), idValidation, validationMiddleware, deleteProduct)
 
 
 export default productsRouter

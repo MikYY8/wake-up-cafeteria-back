@@ -3,19 +3,9 @@ import env from 'dotenv'
 import mongoose from 'mongoose'
 import cors from "cors"
 
-import { Router } from "express";
-import productsRouter from "./router/productsRouter.js"
-import { productValidation } from "../validations/productsValidation.js";
-import { validate } from "../middlewares/validationResult.js";
-import { createProduct } from "./controllers/productsController.js";
-
-import categoriesRouter from "./router/categoriesRouter.js"
-import { categoryValidation } from "../validations/productsValidation.js";
-import { createCategory } from "./controllers/productsController.js";
-
-
-productsRouter.post("/", productValidation,validate,createProduct);
-categoriesRouter.post("/",categoryValidation,validate,createCategory);
+import productsRouter from "./src/router/productsRouter.js"
+import categoriesRouter from "./src/router/categoriesRouter.js"
+import userRouter from "./src/router/userRouter.js"
 
 env.config()
 
@@ -34,14 +24,15 @@ app.use(cors(corsOptions))
 
 app.use("/api/products", productsRouter)
 app.use("/api/category", categoriesRouter)
+app.use("/api/users", userRouter)
 
-app.use((req,res)=>{
-    res.status(404).json({
-      mensage: "Route not found",
-      code: 404,
-      data: {},
-    });
-});
+// app.use((req,res)=>{
+//     res.status(404).json({
+//       mensage: "Route not found",
+//       code: 404,
+//       data: {},
+//     });
+// });
 
 mongoose.connect(process.env.MONGOURL).then(()=>{
   console.log("Base de datos conectada a " + process.env.MONGOURL)
