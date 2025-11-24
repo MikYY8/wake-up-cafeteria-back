@@ -19,12 +19,16 @@ export const getOneCategory = async (req, res)=>{
 
 };
 
-export const getAllCategories = async (req, res)=>{
+export const getAllCategories = async (req, res) => {
     try {
-        const categories = await cs.getAll()
-        res.send(categories)
+        const page = Number(req.query.page) || 1;
+        const limit = Number(req.query.limit) || 10;
+
+        const result = await cs.getAll(page, limit);
+        res.json(result);
+
     } catch (error) {
-        res.status(500).send({ error: "Error al buscar categorías" });
+        res.status(500).json({ message: "Error al obtener categorías" });
     }
 };
 

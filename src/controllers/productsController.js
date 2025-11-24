@@ -19,11 +19,18 @@ export const getOneProduct = async (req, res)=>{
 
 };
 
-export const getAllProducts = async (req, res)=>{
+export const getAllProducts = async (req, res) => {
     try {
-        const productos = await ps.getAll()
-        res.send(productos)
-    } catch (error) {}
+        const page = Number(req.query.page) || 1;
+        const limit = Number(req.query.limit) || 10;
+
+        const result = await ps.getAll(page, limit);
+        res.json(result);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Error al obtener productos" });
+    }
 };
 
 export const createProduct = async (req, res) => {
@@ -35,6 +42,7 @@ export const createProduct = async (req, res) => {
         res.send(productoCreado);
     } catch (error) {
         res.status(500).send({ error: "Error al crear producto" });
+        console.log(error)
     }
 };
 
