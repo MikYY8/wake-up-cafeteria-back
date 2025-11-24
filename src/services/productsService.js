@@ -24,13 +24,15 @@ export class productsService{
         };
     }
 
-    async create(name,price){
+    async create(name, price, description, image){
 
         const idGenerado = Math.ceil((Math.random()*1000000)+1)
 
         const producto = {
             name,
             price,
+            description,
+            image,
             status:true,
             id:idGenerado
         }

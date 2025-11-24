@@ -5,7 +5,8 @@ export const authMiddleware = (req, res, next) => {
     const accesstoken = authHeader?.split(" ")[1];
 
     if (!accesstoken) {
-        return res.status(401).json({ message: "Token no encontrado" });
+        return res.status(401).json({ message: "Token no encontrado" }),
+        console.log(err)
     }
 
     jwt.verify(accesstoken, process.env.JWT_ACCESS, (err, user) => {

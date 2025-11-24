@@ -37,7 +37,7 @@ export const createProduct = async (req, res) => {
     try {
         const { name, price, description, image } = req.body;
 
-        const productoCreado = await ps.create({name,price,description,image,});
+        const productoCreado = await ps.create(name,price,description,image,);
 
         res.send(productoCreado);
     } catch (error) {
