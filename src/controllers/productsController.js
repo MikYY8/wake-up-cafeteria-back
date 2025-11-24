@@ -1,6 +1,6 @@
 // responsable de quitar las variables de la petición y preparar la salida
-
 import { productsService } from "../services/productsService.js"
+import { logger } from "../config/Winston.js";
 
 const ps = new productsService();
 
@@ -36,11 +36,11 @@ export const getAllProducts = async (req, res) => {
 export const createProduct = async (req, res) => {
     try {
         const { name, price, description, image } = req.body;
-
-        const productoCreado = await ps.create({name,price,description,image,});
-
+        const productoCreado = await ps.create(name,price,description,image,);
+        logger.info(`Producto creado: ${product.id}`);
         res.send(productoCreado);
     } catch (error) {
+        logger.error("Error al crear producto: " + error.message);
         res.status(500).send({ error: "Error al crear producto" });
         console.log(error)
     }

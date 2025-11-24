@@ -2,11 +2,6 @@ import mongoose from 'mongoose'
 
 const {Schema,model} = mongoose
 const productSchema = new Schema({
-    id: {
-        type: Number,
-        required: true,
-        unique: true
-    },
     name: {
         type: String,
         required: true
@@ -19,13 +14,18 @@ const productSchema = new Schema({
         type: String,
         default: ""
     },
-    status: {
-        type: Boolean,
-        default: true
-    },
     image: {
         type: String,
         default: ""
+    },
+        status: {
+        type: Boolean,
+        default: true
+    },
+        id: {
+        type: Number,
+        required: true,
+        unique: true
     }
 })
 

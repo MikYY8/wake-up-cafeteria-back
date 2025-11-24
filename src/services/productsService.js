@@ -24,28 +24,33 @@ export class productsService{
         };
     }
 
-    async create(name,price){
+    async create(name, price, description, image){
 
         const idGenerado = Math.ceil((Math.random()*1000000)+1)
 
         const producto = {
             name,
             price,
+            description,
+            image,
             status:true,
             id:idGenerado
         }
         const productoCreado = await Product.create(producto)
+        logger.info(`Producto creado: id=${productoCreado.id}, name=${productoCreado.name}`);
         return productoCreado
     }
 
     async update(producto){
         const productoActualizado = await Product.updateOne({id:producto.id},{...producto})
+        logger.info(`Producto actualizado: id=${id}`);
         return productoActualizado
     }
 
     async deleteLogicoProd(id){
         //  borrado logico
         const productoEliminado = await Product.updateOne({id:id},{status:false})
+        logger.info(`Producto eliminado lógicamente: id=${id}`);
         return productoEliminado
 
     }
