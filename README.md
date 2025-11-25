@@ -1,6 +1,6 @@
-# 🛒 Wake Up Cafetería – API REST (Backend)
+# ☕ Wake Up Cafetería – API REST (Backend)
 
-Proyecto realizado para Programación Web, correspondiente a la creación de una API RESTful completa, con autenticación, validación, paginación, logger y estructura profesional.
+Proyecto realizado para Desarrollo Web, correspondiente a la creación de una API RESTful completa desarrollada con Node.js y Express. Cuenta con autenticación, validación, paginación, logger y estructura profesional.
 
 Esta API gestiona dos entidades principales:
 
@@ -30,22 +30,22 @@ La API fue desarrollada utilizando Node.js + Express, con base de datos en Mongo
 ## ✨ Funcionalidades principales
 ### 1. 🔐 Autenticación
 
-Registro de usuarios con contraseña hasheada (bcrypt)
+- Registro de usuarios con contraseña hasheada (bcrypt)
 
-Login con generación de:
+- Login con generación de:
 
-Access Token (corto plazo)
+- Access Token (corto plazo)
 
-Refresh Token (largo plazo)
+- Refresh Token (largo plazo)
 
-Renovación de Access Token a partir del Refresh Token
+- Renovación de Access Token a partir del Refresh Token
 
-Middleware de autenticación (authMiddleware)
+- Middleware de autenticación (authMiddleware)
 
-Middleware de roles (authRolesMiddleware)
+- Middleware de roles (authRolesMiddleware)
 
 ### 2. 🗂 CRUD Completo (ABMC)
-Productos (Entidad Principal)
+**Productos (Entidad Principal)**
 
 GET /api/products (con paginación)
 
@@ -57,7 +57,7 @@ PUT /api/products/:id (solo admin)
 
 DELETE /api/products/:id (solo admin)
 
-Categorías (Entidad de Soporte)
+**Categorías (Entidad de Soporte)**
 
 GET /api/category
 
@@ -69,7 +69,7 @@ PUT /api/category/:id (solo admin)
 
 DELETE /api/category/:id (solo admin)
 
-Usuarios
+**Usuarios**
 
 POST /api/users/register
 
@@ -93,39 +93,41 @@ Validación de datos obligatorios y tipos
 
 ## 🛠 Tecnologías utilizadas
 
-Node.js
+- Node.js
 
-Express.js
+- Express.js
 
-MongoDB + Mongoose
+- MongoDB + Mongoose
 
-JWT (jsonwebtoken)
+- JWT (jsonwebtoken)
 
-Bcrypt
+- Bcrypt
 
-Express-validator
+- Express-validator
 
-Winston (logger)
+- Winston (logger)
 
-Cors
+- Cors
 
-Dotenv
+- Dotenv
 
-Render (Hosting del backend)
+- Render (Hosting del backend)
 
-Git / GitHub
+- Git / GitHub
 
 📁 Estructura del Proyecto
 /src
+   /config
    /controllers
    /middlewares
-   /model
+   /models
    /router
-   /service
+   /services
    /utils
+   /validations
 app.js
-README.md
 package.json
+README.md
 
 ## 🧪 Instrucciones de Uso
 
@@ -166,7 +168,7 @@ npm run dev
 
 (Aquí van capturas de Postman o del frontend una vez conectado)
 
-🙋 Contribuidores
+## 🙋 Contribuidores
 
 Micaela Ybarra – Backend
 
