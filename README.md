@@ -115,18 +115,30 @@ Validación de datos obligatorios y tipos
 
 - Git / GitHub
 
-📁 Estructura del Proyecto
+## 📁 Estructura del Proyecto
+
 /src
+
    /config
+
    /controllers
+
    /middlewares
+
    /models
+
    /router
+
    /services
+
    /utils
+
    /validations
+
 app.js
+
 package.json
+
 README.md
 
 ## 🧪 Instrucciones de Uso
@@ -164,7 +176,7 @@ JWT_REFRESH_EXPIRES_IN=3d
 npm run dev
 ```
 
-🖼 Imágenes de la aplicación
+## 🖼 Imágenes de la aplicación
 
 (Aquí van capturas de Postman o del frontend una vez conectado)
 
