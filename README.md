@@ -117,43 +117,20 @@ Validación de datos obligatorios y tipos
 
 ## 📁 Estructura del Proyecto
 
-/src
-
-   /config
-
-   /controllers
-
-   /middlewares
-
-   /models
-
-   /router
-
-   /services
-
-   /utils
-
-   /validations
-
-app.js
-
-package.json
-
-README.md
+![Estructura Wake Up](./estructura-wake-up.png)
 
 ## 🧪 Instrucciones de Uso
 
 1️⃣ Clonar el repositorio
 
-```bash
+```javascript
 git clone <URL-del-repo>
 cd wake-up-cafeteria-back
 ```
 
-
 2️⃣ Instalar dependencias
 
-```bash
+```javascript
 npm install
 ```
 
@@ -161,18 +138,18 @@ npm install
 
 Crear .env con:
 
-```bash
+```javascript
 PORT=3000
 MONGOURL=<string-de-mongo-atlas>
 JWT_ACCESS=<clave-para-access-token>
 JWT_ACCESS_EXPIRES_IN=15m
 JWT_REFRESH=<clave-para-refresh-token>
 JWT_REFRESH_EXPIRES_IN=3d
-```bash
+```
 
 4️⃣ Iniciar servidor en desarrollo
 
-```bash
+```javascript
 npm run dev
 ```
 
