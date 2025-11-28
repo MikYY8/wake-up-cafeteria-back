@@ -117,29 +117,7 @@ Validación de datos obligatorios y tipos
 
 ## 📁 Estructura del Proyecto
 
-/src
-
-   /config
-
-   /controllers
-
-   /middlewares
-
-   /models
-
-   /router
-
-   /services
-
-   /utils
-
-   /validations
-
-app.js
-
-package.json
-
-README.md
+![Estructura](./estructura-wake-up.png)
 
 ## 🧪 Instrucciones de Uso
 
@@ -168,7 +146,7 @@ JWT_ACCESS=<clave-para-access-token>
 JWT_ACCESS_EXPIRES_IN=15m
 JWT_REFRESH=<clave-para-refresh-token>
 JWT_REFRESH_EXPIRES_IN=3d
-```bash
+```
 
 4️⃣ Iniciar servidor en desarrollo
 
