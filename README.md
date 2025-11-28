@@ -176,12 +176,6 @@ JWT_REFRESH_EXPIRES_IN=3d
 npm run dev
 ```
 
-## 🖼 Imágenes de la aplicación
-
-(Aquí van capturas de Postman o del frontend una vez conectado)
-
-## 🙋 Contribuidores
+## 🙋 Desarrollado por:
 
 Micaela Ybarra – Backend
-
-Salomón Prieto – Frontend
