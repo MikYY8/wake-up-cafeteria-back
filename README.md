@@ -168,7 +168,7 @@ JWT_ACCESS=<clave-para-access-token>
 JWT_ACCESS_EXPIRES_IN=15m
 JWT_REFRESH=<clave-para-refresh-token>
 JWT_REFRESH_EXPIRES_IN=3d
-```bash
+```
 
 4️⃣ Iniciar servidor en desarrollo
 
